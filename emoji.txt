@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Color Mood Picker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      transition: background-color 0.5s;
+    }
+    button {
+      font-size: 1.5rem;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+    }
+    #happy { background-color: #FF6F61; }
+    #calm { background-color: #6CA0DC; }
+    #energized { background-color: #FFD662; color: #333; }
+    #message {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pick Your Mood Color</h1>
+  <button id="happy">Happy</button>
+  <button id="calm">Calm</button>
+  <button id="energized">Energized</button>
+  <div id="message">Select a mood to see the magic!</div>
+
+  <script>
+    const messages = {
+      happy: "Smile, happiness looks good on you! 😊",
+      calm: "Breathe in peace and let calmness flow.",
+      energized: "Feel the energy! Time to shine. ⚡"
+    };
+
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.body.style.backgroundColor = window.getComputedStyle(button).backgroundColor;
+        document.getElementById('message').textContent = messages[button.id];
+      });
+    });
+  </script>
+</body>
+</html>
